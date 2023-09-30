@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="592ac3206347419d8ba1098831b7c489" Name="Diagram1">
+        <EntityTypeShape EntityType="RestaurantFoodModel.ADMIN" Width="1.5" PointX="5.75" PointY="7.375" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.ChiTietDatHang" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.DonDatHang" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.GiamGia" Width="1.5" PointX="7.75" PointY="2.375" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.GiamGiaSP" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.LoaiMon" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.MENU" Width="1.5" PointX="7.75" PointY="5.375" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.MonAn" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.ThucDon" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="RestaurantFoodModel.TRANGTIN" Width="1.5" PointX="7.75" PointY="8.375" />
+        <AssociationConnector Association="RestaurantFoodModel.FK_ChiTietDatHang_DonDatHang" />
+        <AssociationConnector Association="RestaurantFoodModel.FK_ChiTietDatHang_MonAn" />
+        <AssociationConnector Association="RestaurantFoodModel.FK_DonDatHang_KHACHHANG" />
+        <AssociationConnector Association="RestaurantFoodModel.FK_MonAn_GiamGiaSP" />
+        <AssociationConnector Association="RestaurantFoodModel.FK_MonAn_LoaiMon" />
+        <AssociationConnector Association="RestaurantFoodModel.FK_MonAn_ThucDon" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

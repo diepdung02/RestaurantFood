@@ -1,0 +1,77 @@
+﻿@model List<RestaurantFood.Models.GioHang>
+@using RestaurantFood.Models
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+
+}
+
+<section class="checkout spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h6>
+                    <span class="icon_tag_alt"></span> Mã giảm giá của bạn? <a href="#">Click here</a> to enter your code
+                </h6>
+            </div>
+        </div>
+        <div class="checkout__form">
+            <h4>Chi tiết hóa đơn</h4>
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Họ và tên: @kh.HoTen</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Địa chỉ: @kh.DiaChi</p>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Điện thoại: @kh.DienThoai</p>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Ngày đặt: @DateTime.Now.ToShortDateString()</p>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Ngày giao: từ @DateTime.Now.AddDays(7).ToShortDateString() đến @DateTime.Now.AddDays(10).ToShortDateString()</p>
+                        </div>
+                    </div>
+                        @*form Hóa đơn*@
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4>Hóa đơn của bạn</h4>
+                            <div class="checkout__order__products">Sản phẩm <span>Tổng</span></div>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    <li>@item.sTen_MonAn<span>@string.Format("{0:#,0}", ViewBag.TongTien) vnđ</span></li>
+                                }
+
+                            </ul>
+                            <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
+                            <div class="checkout__order__total">Thành tiền:<span>@string.Format("{0:#,0}", ViewBag.TongTien) vnđ</span></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<table align="center">
+    @using (Html.BeginForm("DatHang", "GioHang"))
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px;">
+            <td></td>
+            <td>
+                <input type="submit" value="ĐẶT HÀNG" />
+            </td>
+        </tr>
+    }
+</table>
+

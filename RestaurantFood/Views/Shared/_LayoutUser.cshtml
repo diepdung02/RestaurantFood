@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <!-- Hero Section End -->
+    <!-- Categories Section Begin -->
+    <section class="categories">
+        @Html.Action("Slider", "Home")
+    </section>
+    <!-- Categories Section End -->
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
+        @RenderBody()
+    </section>
+    <!-- Featured Section End -->
+    <!-- Banner Begin -->
+    <div class="banner">
+        @Html.Action("Banner", "Home")
+    </div>
+    <!-- Banner End -->
+    <!-- Latest Product Section Begin -->
+    <section class="latest-product spad">
+        @Html.Action("ThanhSanPham", "Home")
+    </section>
+    <!-- Latest Product Section End -->
+    <!-- Blog Section Begin -->
+    <section class="from-blog spad">
+        @Html.Action("FromTheBlog", "Home")
+    </section>
+    <!-- Blog Section End -->
+    <!-- Footer Section Begin -->

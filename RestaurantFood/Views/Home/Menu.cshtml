@@ -1,0 +1,23 @@
+﻿@model IEnumerable<RestaurantFood.Models.MENU>
+
+<nav class="header__menu">
+    <ul>
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                if (ViewBag.lst[i] != 0)
+                {
+                    <li><a href="~/@item.MenuLink">@item.MenuName</a></li>
+                    @Html.Action("LoadChildMenu", "Home", new { parentId = item.Id })
+
+                }
+                else
+                {
+                    <li><a href="~/@item.MenuLink">@item.MenuName</a> </li>
+                }
+                i++;
+            }
+        }
+    </ul>
+</nav>

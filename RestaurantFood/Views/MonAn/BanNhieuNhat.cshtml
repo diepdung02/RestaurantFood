@@ -1,0 +1,58 @@
+﻿@model List<RestaurantFood.Models.MonAn>
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)<text>...</text>
+    }
+}
+<div class="latest-product__text">
+    <h4>Bán nhiều nhất</h4>
+    <div class="latest-product__slider owl-carousel">
+        <div class="latest-prdouct__slider__item">
+            @*@foreach (var item in Model)
+                {
+                    <a href="#" class="latest-product__item">
+                        <div class="latest-product__item__pic">
+                            <img style="width:110px; height:110px" src="../Images/@item.AnhChinh_MonAn" alt="">
+                        </div>
+                        <div class="latest-product__item__text">
+                            <h6>@item.Ten_MonAn</h6>
+                            <span>@string.Format("{0:#,0}", item.GiaBanMoi_MonAn) vnđ</span>
+                        </div>
+                    </a>
+                }*@
+            @for (int i = 0; i < 3; i++)
+            {
+                <a href="~/MonAn/ChiTietSanPham?id=@Model[i].Id_MonAn" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                        <img style="width:110px; height:110px" src="~/Images/@Model[i].AnhChinh_MonAn" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                        <h6>@Truncate(@Model[i].Ten_MonAn, 10)</h6>
+                        <span>@string.Format("{0:#,0}", Model[i].GiaBanMoi_MonAn) vnđ</span>
+                    </div>
+                </a>
+            }
+        </div>
+        <div class="latest-prdouct__slider__item">
+            @for (int i = 3; i < 6; i++)
+            {
+                <a href="~/MonAn/ChiTietSanPham?id=@Model[i].Id_MonAn" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                        <img style="width:110px; height:110px" src="~/Images/@Model[i].AnhChinh_MonAn" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                        <h6>@Truncate(@Model[i].Ten_MonAn, 10)</h6>
+                        <span>@string.Format("{0:#,0}", Model[i].GiaBanMoi_MonAn) vnđ</span>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,7 @@
+﻿@model List<RestaurantFood.Models.LoaiMon>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="~/MonAn/XemTheoLoaiMon?tenLoai=@item.Ten_LoaiMon&id=@item.Id_LoaiMon">@item.Ten_LoaiMon</a></li>
+    }
+</ul>
